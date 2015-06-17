@@ -1,18 +1,13 @@
-{% load staticfiles %}
-
 <!DOCTYPE html>
 <!--[if IE 7]> <html lang="en" class="lt-ie9 lt-ie8 no-js"> <![endif]-->
 <!--[if IE 8]> <html lang="en" class="lt-ie9 no-js"> <![endif]-->
 <!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
 <head>
-  {% block meta %}
     <meta charset=utf-8 />
     <meta name="author" content="UCL" />
     <meta name="description" content="UCL Homepage" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  {% endblock %}
 
-  {% block social_meta %}
     <!-- social meta -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@uclnews">
@@ -28,24 +23,18 @@
     <meta property="og:type" content="website" />
     <meta property="og:profile_id" content="uclofficial" />
     <!-- end social meta -->
-  {% endblock %}
 
-  <title>{% block page_title %}{{ request.site.name }}{% endblock %}</title>
+  <title>{{ page.title }}</title>
 
-  {% block styles %}
-    <link href="{% static 'indigo/css/screen.min.css' %}" media="screen, projection" rel="stylesheet" type="text/css" />
-  {% endblock %}
+  <link href="{{site.baseurl}}/css/screen.min.css" media="screen, projection" rel="stylesheet" type="text/css" />
 
 
-  {% block favicons %}
-    <link rel="shortcut icon" href="{% static 'indigo/images/favicon.ico' %}" />
-    <link rel="apple-touch-icon-precomposed" href="{% static 'indigo/favicon-152.png' %}">
+  <link rel="shortcut icon" href="{{site.baseurl}}/images/favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" href="{{site.baseurl}}/favicon-152.png">
     <meta name="msapplication-TileColor" content="#000000">
-    <meta name="msapplication-TileImage" content="{% static 'indigo/favicon-144.png' %}">
-  {% endblock %}
+    <meta name="msapplication-TileImage" content="{{site.baseurl}}/favicon-144.png">
 
-  {% block head_scripts %}
-    <script src="{% static 'indigo/js/lib/modernizr-custom.js' %}"></script>
+  <script src="{{site.baseurl}}/js/lib/modernizr-custom.js"></script>
 
     <script>
       var cuttingTheMustard = document.querySelector && window.localStorage && window.addEventListener;
@@ -56,51 +45,45 @@
         //if old browser load the shiv
         ,
         nope: [
-        '{% static "indigo/js/lib/html5shiv-printshiv.min.js" %}', '{% static "indigo/js/lib/respond.min.js" %}'
+          '{{site.baseurl}}/js/lib/html5shiv-printshiv.min.js', '{{site.baseurl}}/js/lib/respond.min.js'
         ]
       });
       //set conditional assets for main.js
       var globalSiteSpecificVars = {
-        pathToJquery: '{% static "indigo/js/lib/jquery-1.9.1.min" %}',
+        pathToJquery: "{{site.baseurl}}/js/lib/jquery-1.9.1.min",
         googleAnalyticsIdsArray: [] //specify array of site specific id's NOT UCL generic UA-943297-1
       }
       if (cuttingTheMustard) {
-        globalSiteSpecificVars.pathToJquery = '{% static "indigo/js/lib/jquery-2.1.1.min" %}';
+        globalSiteSpecificVars.pathToJquery = '{{site.baseurl}}/js/lib/jquery-2.1.1.min';
       }
     </script>
-  {% endblock head_scripts %}
-
-  {% block extra_head %}
-  {% endblock %}
 
 </head>
 
-<body id="{% block body_id %}{% endblock %}" class="{% block body_class %}{% endblock %}">
+<body class="{{body_class}}">
 
   <header class="header header--desktop">
 
   <a class="header__close" href="#">
-    <img src="{% static 'indigo/images/close.png' %}" alt="X" />Close</a>
+    <img src="{{site.baseurl}}/images/close.png" alt="X" />Close</a>
 
-  {% include "indigo/includes/global-masthead.html" %}
+  {% include global-masthead.html %}
 
   <div class="wrapper">
 
-    {% include "indigo/includes/ucl-banner.html" %}
+    {% include ucl-banner.html %}
 
     <div class="sidebar">
 
       <nav class="nav nav--mobile">
         <ul>
-          {% block nav_mobile_links %}
-          {% endblock nav_mobile_links %}
+          {% include nav_mobile_links.html %}
         </ul>
       </nav>
 
       <nav class="nav nav--left">
         <ul>
-          {% block nav_left_links %}
-          {% endblock nav_left_links %}
+          {% include nav_left_links.html %}
         </ul>
       </nav>
 
@@ -109,8 +92,7 @@
 
     <nav class="nav nav--top">
       <ul>
-        {% block nav_top_links %}
-        {% endblock nav_top_links %}
+        {% include nav_top_links.html %}
       </ul>
     </nav>
 
@@ -124,31 +106,27 @@
 
     <header class="header header--mobile default-header">
       <a class="header__open" href="#">
-        <img src="{% static 'indigo/images/ucl-menu.svg' %}" alt="Menu" />
+        <img src="{{site.baseurl}}/images/ucl-menu.svg" alt="Menu" />
       </a>
     </header>
 
     <div class="site-content__inner clearfix">
       <div class="site-content__body">
 
-        {% block breadcrumbs %}
           <nav class="breadcrumb clearfix">
             <ul class="breadcrumb__list">
-              {% block breadcrumb_links %}
-              {% endblock %}
+              {% include crumbs.html%}
             </ul>
           </nav>
-        {% endblock %}
 
-        {% block content_body %}
-        {% endblock content_body %}
+        {{ content_body }}
       </div>
     </div>
 
   </div>
   <!-- end .site-content -->
 
-  {% include "indigo/includes/footer.html" %}
+  {% include footer.html %}
 
   {% comment %}
   This is where django_debug_toolbar can inject its markup - it is important to do this before
@@ -164,19 +142,15 @@
 
   <!-- DEBUG_TOOLBAR_PLACEHOLDER -->
 
-  {% block scripts %}
 
-    <script src="{% static 'indigo/js/lib/require.min.js' %}"></script>
-    <script src="{% static 'indigo/js/main.js' %}"></script>
+  <script src="{{site.baseurl}}/js/lib/require.min.js"></script>
+  <script src="{{site.baseurl}}/js/main.js"></script>
     <script>
       require.config({
-          baseUrl: '{% static "indigo/js/lib" %}'
+        baseUrl: '{{site.baseurl}}/js/lib'
       });
-      {% block requirejs %}
         require(["app/general", "app/searchWithAutoComplete", "app/tabs"]);//load the default stuff
-      {% endblock %}
     </script>
-  {% endblock %}
 
 </body>
 

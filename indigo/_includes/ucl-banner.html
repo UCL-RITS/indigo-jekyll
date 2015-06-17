@@ -1,9 +1,7 @@
-{% load staticfiles %}
-
 <div class="photograph">
   <div class="brand">
-    <h2 class="brand__heading">{{ request.site.name }}</h2>
+    <h2 class="brand__heading">{{ site.name }}</h2>
     <a href="/" class="brand__link"><span class="visually-hidden">Home</span></a>
-    <img src="{% static 'indigo/images/ucl-logo.svg' %}" alt="UCL logo" id="logo" class="brand__logo">
+    <img src="{{site.baseurl}}/images/ucl-logo.svg" alt="UCL logo" id="logo" class="brand__logo">
   </div>
 </div>

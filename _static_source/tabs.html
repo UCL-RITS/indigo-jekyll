@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!--[if IE 7]> <html lang="en" class="lt-ie9 lt-ie8 no-js"> <![endif]-->
+<!--[if IE 8]> <html lang="en" class="lt-ie9 no-js"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+	<meta charset=utf-8 />
+	<meta name="author" content="UCL" />
+	<meta name="description" content="UCL Homepage" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<!-- social meta -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@uclnews">
+	<meta name="twitter:title" content="UCL - London's Global University">
+	<meta name="twitter:description" content="UCL (University College London) is London's leading multidisciplinary university, with 8,000 staff and 25,000 students.">
+	<meta name="twitter:creator" content="@UCLWAMS">
+	<meta name="twitter:image:src" content="http://www.ucl.ac.uk/visual-identity/logos/standalone.png">
+	<meta property="og:image" content="http://www.ucl.ac.uk/visual-identity/logos/standalone.png" />
+	<meta property="og:title" content="UCL - London's Global University" />
+	<meta property="og:url" content="http://www.ucl.ac.uk" />
+	<meta property="og:site_name" content="UCL" />
+	<meta property="og:description" content="UCL (University College London) is London's leading multidisciplinary university, with 8,000 staff and 25,000 students." />
+	<meta property="og:type" content="website" />
+	<meta property="og:profile_id" content="uclofficial" />
+	<!-- end social meta -->
+	<title>UCL Design Language</title>
+
+	<link href="//static.ucl.ac.uk/indigo/css/screen.min.css" media="screen, projection" rel="stylesheet" type="text/css" />
+
+	<!--[if IE]><link href="//static.ucl.ac.uk/indigo/css/ie.min.css" rel="stylesheet" /><![endif]-->
+	<!--[if lt IE 8]><link href="//static.ucl.ac.uk/indigo/css/ie-old.min.css" rel="stylesheet" /><![endif]-->
+
+	<link rel="shortcut icon" href="//static.ucl.ac.uk/indigo/images/favicon.ico" />
+	<link rel="apple-touch-icon-precomposed" href="favicon-152.png">
+	<meta name="msapplication-TileColor" content="#000000">
+	<meta name="msapplication-TileImage" content="favicon-144.png">
+
+	<script src="//static.ucl.ac.uk/indigo/js/lib/modernizr-custom.js"></script>
+
+	<script>
+	var cuttingTheMustard = document.querySelector && window.localStorage && window.addEventListener;
+
+	Modernizr.load({
+		//cutting the mustard as used by the BBC
+		test: cuttingTheMustard
+			//if old browser load the shiv
+			,
+		nope: [
+			'//static.ucl.ac.uk/indigo/js/lib/html5shiv-printshiv.min.js', '//static.ucl.ac.uk/indigo/js/lib/respond.min.js'
+		]
+	});
+	//set conditional assets for main.js
+	var globalSiteSpecificVars = {
+		pathToJquery: '//static.ucl.ac.uk/indigo/js/lib/jquery-1.9.1.min',
+		googleAnalyticsIdsArray: [] //specify array of site specific id's NOT UCL generic UA-943297-1
+	}
+	if (cuttingTheMustard) {
+		globalSiteSpecificVars.pathToJquery = "//static.ucl.ac.uk/indigo/js/lib/jquery-2.1.1.min";
+	}
+	</script>
+
+	<script src="//static.ucl.ac.uk/indigo/js/lib/require.min.js"></script>
+	<script src="//static.ucl.ac.uk/indigo/js/main.js"></script>
+	<script>
+		require(["app/general","app/tabs"]); //load the default stuff
+	</script>
+</head>
+
+<body id="tabs-view" class="layout-vertical layout-vertical--nav-2col">
+<div class="tabs">
+  <nav role="navigation" role="secondary" class="tabs__navigation">
+    <ul>
+      <li><a href="#tab-1">Profile</a></li>
+      <li><a class="active" href="#tab-2">Research</a></li>
+      <li><a href="#tab-3">Publications</a></li>
+      <li><a href="#tab-4">Biography</a></li>
+      <li><a href="#tab-5">Additional Info</a></li>
+    </ul>
+  </nav>
+  <div class="tabs__group">
+    <div class="tabs__item tab" id="tab-1">
+      <div class="tab__content">
+        <h2>Tab 1</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cum non iure magnam dolores earum nemo quo tempora ab unde! Nesciunt ea iste impedit suscipit cupiditate quam earum explicabo quas veniam doloribus sed aut aliquam repellendus deleniti laudantium molestias fuga nihil quidem voluptatum atque sapiente perferendis facilis. Tempora mollitia odio?</p>
+      </div>
+    </div>
+
+    <div class="tabs__item active tab" id="tab-2">
+      <div class="tab__content">
+        <h2>Tab 2</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur est natus esse minima nihil quidem tenetur alias pariatur. Obcaecati repudiandae temporibus provident sapiente iure doloribus praesentium voluptates dolores quia eos velit fugit cum ipsam. Deleniti fugiat maxime vel tempore illum esse illo fugit quam recusandae aut aperiam omnis at quaerat!</p>
+      </div>
+    </div>
+
+    <div class="tabs__item tab" id="tab-3">
+      <div class="tab__content">
+        <h2>Tab 3</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores numquam cupiditate aliquam quisquam repellendus fugit eaque asperiores voluptatem ut accusamus soluta corporis in facere quae provident itaque magni eum repellat ducimus dolore. Beatae aperiam accusamus at voluptatem ad sunt mollitia perspiciatis tempora numquam rerum aliquam deserunt illum necessitatibus nisi omnis.</p>
+      </div>
+    </div>
+
+    <div class="tabs__item tab" id="tab-4">
+      <div class="tab__content">
+        <h2>Tab 4</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste officiis impedit ut culpa quaerat error pariatur voluptatum sapiente alias quasi itaque voluptas expedita necessitatibus odio dolorem totam veniam quisquam nulla vero placeat corporis cupiditate assumenda amet inventore mollitia quidem similique laudantium maxime aperiam ea reprehenderit iusto a ad tempora harum.</p>
+      </div>
+    </div>
+    
+        <div class="tabs__item tab" id="tab-5">
+      <div class="tab__content">
+        <h2>Tab 5</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste officiis impedit ut culpa quaerat error pariatur voluptatum sapiente alias quasi itaque voluptas expedita necessitatibus odio dolorem totam veniam quisquam nulla vero placeat corporis cupiditate assumenda amet inventore mollitia quidem similique laudantium maxime aperiam ea reprehenderit iusto a ad tempora harum.</p>
+      </div>
+    </div>
+  </div> 
+</div>
+</body>
+
+</html>

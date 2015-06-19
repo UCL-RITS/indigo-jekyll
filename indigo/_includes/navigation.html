@@ -1,0 +1,18 @@
+{% comment %}
+From https://gist.github.com/kasperisager/9416313
+{% endcomment %}
+
+{% assign entries = site.pages | sort: "path" %}
+{% for entry in entries %}
+    {% capture apparent %}{{entry.url | remove: 'index.html'}}{% endcapture %} 
+    {% capture leaf    %}{{ apparent | split: "/"   | last }}{% endcapture %}
+    {% capture folder %}{{ apparent | remove: leaf | remove: "//" }}{% endcapture %}
+    {% if folder == include.context %}
+        <li>
+          <a href="{{ site.baseurl }}{{ apparent }}">{{ entry.title }}</a>
+          <ul>
+            {% include navigation.html context=apparent %}
+           </ul>
+        </li>
+    {% endif %}
+{% endfor %}

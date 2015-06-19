@@ -27,7 +27,8 @@
   <title>{{ page.title }}</title>
 
   <link href="{{site.baseurl}}/css/screen.min.css" media="screen, projection" rel="stylesheet" type="text/css" />
-
+  <link href="{{site.baseurl}}/css/jekyll-styles.css" rel="stylesheet" type="text/css">
+  <link href="{{site.baseurl}}/site-styles/local_styles.css" rel="stylesheet" type="text/css">
 
   <link rel="shortcut icon" href="{{site.baseurl}}/images/favicon.ico" />
     <link rel="apple-touch-icon-precomposed" href="{{site.baseurl}}/favicon-152.png">
@@ -118,8 +119,15 @@
               {% include crumbs.html%}
             </ul>
           </nav>
+         <div class="site-content__main">
+          {% if page.slidelink %}
+             <div id="slidelink">
+                <a href="{{page.url | remove: ".html"}}-reveal.html">Slides</a>
+             </div>
+          {% endif %}
+          {{ content_body }}
+        </div>
 
-        {{ content_body }}
       </div>
     </div>
 

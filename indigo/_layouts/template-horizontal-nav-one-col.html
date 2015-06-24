@@ -1,11 +1,9 @@
-{% extends "indigo/base.html" %}
+{% capture body_class %}layout-vertical layout-horizontal--nav-1col{% endcapture %}
 
-{% block body_class %}layout-horizontal layout-horizontal--nav-1col{% endblock %}
+{% capture content_body %}
 
-{% block content_body %}
+    {{ content }}
 
-  <div class="site-content__main">
-    {% block content %}
-    {% endblock %}
-  </div>
-{% endblock %}
+{% endcapture %}
+
+{% include base.html %}

@@ -1,4 +1,6 @@
 {% for place in site.leftnav %}
     <li><a href="{{place.link}}">{{place.text}}</a></li>
 {% endfor %}
+{% if site.navigator %}
 {% include navigation.html context="" %}
+{% endif %}

@@ -124,7 +124,7 @@
          <div class="site-content__main">
           {% if page.slidelink %}
              <div id="slidelink">
-                <a href="{{page.url | remove: ".html"}}-reveal.html">Slides</a>
+               <a href="{{site.baseurl}}/{{page.url | remove: ".html"}}-reveal.html">Slides</a>
              </div>
           {% endif %}
           {{ content_body }}

@@ -64,5 +64,10 @@ div#slidelink {
 .vi { color: #008080 } /* Name.Variable.Instance */
 .il { color: #009999 } /* Literal.Number.Integer.Long */
 .photograph {
-  background-color: #007e9e; }
+  background-color: #007e9e;
 }
+.header--mobile { 
+  background-color: #007e9e; 
+  border-bottom-color: #007e9e; 
+} 
+

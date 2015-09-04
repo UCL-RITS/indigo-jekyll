@@ -78,15 +78,22 @@
         globalSiteSpecificVars.pathToJquery = '{{site.baseurl}}/js/lib/jquery-2.1.1.min';
       }
     </script>
-
+    <script src="{{site.baseurl}}/js/lib/require.min.js"></script>
+    <script src="{{site.baseurl}}/js/main.js"></script>
+    <script>
+      require.config({
+        baseUrl: '{{site.baseurl}}/js/lib'
+      });
+        require(["app/general", "app/searchWithAutoComplete", "app/tabs"]);//load the default stuff
+    </script>
 </head>
 
-<body class="{{body_class}}">
+<body id="index" class="{{body_class}}">
 
   <header class="header header--desktop">
 
   <a class="header__close" href="#">
-    <img src="{{site.baseurl}}/images/close.png" alt="X" />Close</a>
+    <img src="{{site.baseurl}}/images/close.png" class="lazy" data-src="//static.ucl.ac.uk/indigo/images/close.png" alt="X" />Close</a>
 
   {% include global-masthead.html %}
 
@@ -160,21 +167,6 @@
   <!-- end .site-content -->
 
   {% include footer.html %}
-
-  {% comment %}
-  This is where django_debug_toolbar can inject its markup - it is important to do this before
-  requirejs is kicked off - debug toolbar messes around with define() and can cause loading
-  race conditions particularly on slow connections.
-
-  Setup as follows:
-
-  DEBUG_TOOLBAR_CONFIG = {
-      'INSERT_BEFORE': '<!-- DEBUG_TOOLBAR_PLACEHOLDER -->'
-  }
-  {% endcomment %}
-
-  <!-- DEBUG_TOOLBAR_PLACEHOLDER -->
-
 
   <script src="{{site.baseurl}}/js/lib/require.min.js"></script>
   <script src="{{site.baseurl}}/js/main.js"></script>

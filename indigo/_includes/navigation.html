@@ -11,7 +11,7 @@ From https://gist.github.com/kasperisager/9416313
     {% unless entry.nolink %}<a href="{{ site.baseurl }}{{ apparent }}">{{ entry.title }}</a>{% endunless %}
     {% endif %}
     {% if folder == include.context %}
-        <li>
+        <li class="{% if page.url contains folder %}active{%else%}inactive{% endif %}">
           {% unless entry.nolink %}<a href="{{ site.baseurl }}{{ apparent }}">{{ entry.title }}</a>
           {% else %}{{entry.title}}
           {% endunless %}

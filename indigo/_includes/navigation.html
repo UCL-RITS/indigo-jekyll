@@ -1,8 +1,6 @@
 {% comment %}
 From https://gist.github.com/kasperisager/9416313
 {% endcomment %}
-{%capture html%}
-{% assign entries = site.pages | sort: "path" %}
 {% for entry in entries %}
     {% capture apparent %}{{entry.url | remove: 'index.html'}}{% endcapture %}
     {% capture leaf    %}{{ apparent | split: "/"   | last }}{% endcapture %}
@@ -15,9 +13,11 @@ From https://gist.github.com/kasperisager/9416313
           {% unless entry.nolink %}<a href="{{ site.baseurl }}{{ apparent }}">{{ entry.title }}</a>
           {% else %}{{entry.title}}
           {% endunless %}
+          {% if entry.url contains "index.html" %}
           <ul>
             {% include navigation.html context=apparent %}
            </ul>
+           {% endif %}
         </li>
     {% endif %}
-{% endfor %}{% endcapture %}{{ html | strip_newlines | replace:'   ','' | replace:'    ','' | replace:'  ',' ' }}
+{% endfor %}

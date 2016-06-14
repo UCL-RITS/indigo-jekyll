@@ -13,11 +13,11 @@ From https://gist.github.com/kasperisager/9416313
           {% unless entry.nolink %}<a href="{{ site.baseurl }}{{ apparent }}">{{ entry.title }}</a>
           {% else %}{{entry.title}}
           {% endunless %}
-          {% if entry.url contains "index.html" %}
+          {% unless apparent contains ".html" %}
           <ul>
             {% include navigation.html context=apparent %}
            </ul>
-           {% endif %}
+           {% endunless %}
         </li>
     {% endif %}
 {% endfor %}

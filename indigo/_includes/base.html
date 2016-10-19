@@ -141,22 +141,24 @@
     <div class="site-content__inner clearfix">
       <div class="site-content__body">
 
-          <nav class="breadcrumb clearfix">
-            <ul class="breadcrumb__list">
-              {% include crumbs.html%}
-            </ul>
-          </nav>
-         <div class="site-content__main">
-          {% if page.nblink %}
-             <div id="slidelink">
-               <a href="{{site.baseurl}}/{{page.path | remove: ".md"}}.ipynb">Notebook download</a>
-             </div>
-          {% endif %}
-          {% if page.slidelink %}
-             <div id="slidelink">
-               <a href="{{site.baseurl}}/{{page.path | remove: ".md"}}-reveal.html">Slides</a>
-             </div>
-          {% endif %}
+          {% unless site.no_crumbs %}
+            <nav class="breadcrumb clearfix">
+              <ul class="breadcrumb__list">
+                {% include crumbs.html%}
+              </ul>
+            </nav>
+           <div class="site-content__main">
+            {% if page.nblink %}
+               <div id="slidelink">
+                 <a href="{{site.baseurl}}/{{page.path | remove: ".md"}}.ipynb">Notebook download</a>
+               </div>
+            {% endif %}
+            {% if page.slidelink %}
+               <div id="slidelink">
+                 <a href="{{site.baseurl}}/{{page.path | remove: ".md"}}-reveal.html">Slides</a>
+               </div>
+            {% endif %}
+          {% endunless %}
           {{ content_body }}
         </div>
 

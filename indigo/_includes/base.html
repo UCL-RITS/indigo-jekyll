@@ -150,7 +150,7 @@
            <div class="site-content__main">
             {% if page.nblink %}
                <div id="slidelink">
-                 <a href="{{site.baseurl}}/{{page.path | remove: ".md"}}.ipynb">Notebook download</a>
+                 <a href="{{site.baseurl}}/{{page.path | remove: ".html" | remove: ".md"}}.ipynb">Notebook download</a>
                </div>
             {% endif %}
             {% if page.slidelink %}

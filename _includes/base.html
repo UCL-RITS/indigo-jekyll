@@ -26,17 +26,17 @@
 
   <title>{{ page.title }}</title>
 
-  <link href="{{site.baseurl}}/css/screen.min.css" media="screen, projection" rel="stylesheet" type="text/css" />
-  <link href="{{site.baseurl}}/css/jekyll-styles.css" rel="stylesheet" type="text/css">
+  <link href="{{site.baseurl}}/assets/css/screen.min.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <link href="{{site.baseurl}}/assets/css/jekyll-styles.css" rel="stylesheet" type="text/css">
   <link href="{{site.baseurl}}/site-styles/local_styles.css" rel="stylesheet" type="text/css">
   <link href="{{site.baseurl}}/site-styles/ipython.css" rel="stylesheet" type="text/css">
 
-  <link rel="shortcut icon" href="{{site.baseurl}}/images/favicon.ico" />
+  <link rel="shortcut icon" href="{{site.baseurl}}/assets/images/favicon.ico" />
     <link rel="apple-touch-icon-precomposed" href="{{site.baseurl}}/favicon-152.png">
     <meta name="msapplication-TileColor" content="#000000">
     <meta name="msapplication-TileImage" content="{{site.baseurl}}/favicon-144.png">
 
-  <script src="{{site.baseurl}}/js/lib/modernizr-custom.js"></script>
+  <script src="{{site.baseurl}}/assets/js/lib/modernizr-custom.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
     <script type="text/x-mathjax-config">
@@ -66,23 +66,23 @@
         //if old browser load the shiv
         ,
         nope: [
-          '{{site.baseurl}}/js/lib/html5shiv-printshiv.min.js', '{{site.baseurl}}/js/lib/respond.min.js'
+          '{{site.baseurl}}/assets/js/lib/html5shiv-printshiv.min.js', '{{site.baseurl}}/assets/js/lib/respond.min.js'
         ]
       });
       //set conditional assets for main.js
       var globalSiteSpecificVars = {
-        pathToJquery: "{{site.baseurl}}/js/lib/jquery-1.9.1.min",
+        pathToJquery: "{{site.baseurl}}/assets/js/lib/jquery-1.9.1.min",
         googleAnalyticsIdsArray: [] //specify array of site specific id's NOT UCL generic UA-943297-1
       }
       if (cuttingTheMustard) {
-        globalSiteSpecificVars.pathToJquery = '{{site.baseurl}}/js/lib/jquery-2.1.1.min';
+        globalSiteSpecificVars.pathToJquery = '{{site.baseurl}}/assets/js/lib/jquery-2.1.1.min';
       }
     </script>
-    <script src="{{site.baseurl}}/js/lib/require.min.js"></script>
-    <script src="{{site.baseurl}}/js/main.js"></script>
+    <script src="{{site.baseurl}}/assets/js/lib/require.min.js"></script>
+    <script src="{{site.baseurl}}/assets/js/main.js"></script>
     <script>
       require.config({
-        baseUrl: '{{site.baseurl}}/js/lib'
+        baseUrl: '{{site.baseurl}}/assets/js/lib'
       });
         require(["app/general", "app/searchWithAutoComplete", "app/tabs"]);//load the default stuff
     </script>
@@ -93,7 +93,7 @@
   <header class="header header--desktop">
 
   <a class="header__close" href="#">
-    <img src="{{site.baseurl}}/images/close.png" class="lazy" data-src="//static.ucl.ac.uk/indigo/images/close.png" alt="X" />Close</a>
+    <img src="{{site.baseurl}}/assets/images/close.png" class="lazy" data-src="//static.ucl.ac.uk/indigo/images/close.png" alt="X" />Close</a>
 
   {% include global-masthead.html %}
 
@@ -134,7 +134,7 @@
 
     <header class="header header--mobile default-header">
       <a class="header__open" href="#">
-        <img src="{{site.baseurl}}/images/ucl-menu.svg" alt="Menu" />
+        <img src="{{site.baseurl}}/assets/images/ucl-menu.svg" alt="Menu" />
       </a>
     </header>
 
@@ -170,11 +170,11 @@
 
   {% include footer.html %}
 
-  <script src="{{site.baseurl}}/js/lib/require.min.js"></script>
-  <script src="{{site.baseurl}}/js/main.js"></script>
+  <script src="{{site.baseurl}}/assets/js/lib/require.min.js"></script>
+  <script src="{{site.baseurl}}/assets/js/main.js"></script>
     <script>
       require.config({
-        baseUrl: '{{site.baseurl}}/js/lib'
+        baseUrl: '{{site.baseurl}}/assets/js/lib'
       });
         require(["app/general", "app/searchWithAutoComplete", "app/tabs"]);//load the default stuff
     </script>

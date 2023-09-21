@@ -1,4 +1,7 @@
 {% for place in site.leftnav %}
     <li><a href="{{place.link}}">{{place.text}}</a></li>
 {% endfor %}
+{% assign entries = site.pages | sort: "path" %}
+{% capture html %}
 {% include navigation.html context="" %}
+{% endcapture %}{{ html | strip_newlines | replace:'   ','' | replace:'    ','' | replace:'  ',' ' }}
